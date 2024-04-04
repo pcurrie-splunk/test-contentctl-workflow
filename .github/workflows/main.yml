@@ -12,6 +12,4 @@ jobs:
         cd security_content
         contentctl build
         scp -r dist/DA-ESS-ContentUpdate splunk@10.202.20.205:/opt/splunk/etc/apps
-        ssh splunk@10.202.20.205
-        pwd
-        whoami
+        ssh -t splunk@10.202.20.205 'whoami'
