@@ -13,4 +13,5 @@ jobs:
         contentctl build
         scp -r dist/DA-ESS-ContentUpdate splunk@10.202.20.205:/opt/splunk/etc/apps
         ssh splunk@10.202.20.205
-        /opt/splunk/bin/splunk restart
+        pwd
+        whoami
