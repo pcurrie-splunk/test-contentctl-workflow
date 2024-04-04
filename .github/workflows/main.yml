@@ -9,5 +9,6 @@ jobs:
         cd /home/splunker
         source .venv/bin/activate
         cd security_content
-        contentctl validate
+        contentctl build
+        scp -r dist/DA-ESS-ContentUpdate splunk@10.202.20.205:/opt/splunk/etc/apps
         
