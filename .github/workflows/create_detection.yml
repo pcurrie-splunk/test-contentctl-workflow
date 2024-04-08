@@ -1,0 +1,16 @@
+name: deploy-detection
+on: push
+jobs:
+  my-job:
+    runs-on: self-hosted
+    steps:
+    - shell: bash
+      run: |
+        cd /home/splunker
+        source .venv/bin/activate
+        mkdir app_v2
+        cd app_v2
+        contentctl init
+        contentctl build
+        scp -r dist/ContentPack splunk@10.202.20.205:/opt/splunk/etc/apps
+        ssh -t splunk@10.202.20.205 '/opt/splunk/bin/splunk restart'
